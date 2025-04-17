@@ -20,4 +20,4 @@ jobs:
 
       - name: Ejecutar script
         run: |
-          python3 bottelegram.py  # Asegúrate de que el nombre del script sea correcto
+          python3 github/bottelegram.py  # Asegúrate de que el nombre del script sea correcto
