@@ -1,0 +1,23 @@
+name: Ejecutar Script de Trading
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Esto ejecuta el script cada minuto (puedes cambiarlo si es necesario)
+  workflow_dispatch:  # Esto permite ejecutar manualmente el flujo de trabajo desde GitHub
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest  # Usa una imagen de Ubuntu para ejecutar el script
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2  # Esto descarga el código de tu repositorio
+
+      - name: Instalar dependencias
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt  # Asegúrate de tener el archivo requirements.txt
+
+      - name: Ejecutar script
+        run: |
+          python3 bottelegram.py  # Asegúrate de que el nombre del script sea correcto
